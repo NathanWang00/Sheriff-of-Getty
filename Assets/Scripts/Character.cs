@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Names: Jackson Brazeal
 public class Character : Damageable
 {
     // Inherits the damageable code and adds knockback, movement, and turnsystem
