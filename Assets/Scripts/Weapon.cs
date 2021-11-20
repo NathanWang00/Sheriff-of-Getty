@@ -39,7 +39,8 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("Shooting");
-            GameObject shotBullet = Instantiate(bullet, this.transform.Find("Gun").position, this.transform.rotation);
+            GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
+            shotBullet.GetComponent<Rigidbody2D>().AddForce(this.transform.right * 10, ForceMode2D.Impulse);
         }
     }
 }
