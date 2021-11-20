@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Friendly Hitbox
+  - Friendly Hurtbox
+  - Enemy Hitbox
+  - Enemy Hurtbox
+  - Terrain Detection
+  - Terrain
   - 
   - 
   - 

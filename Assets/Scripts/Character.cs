@@ -51,6 +51,14 @@ public class Character : Damageable
         base.FixedUpdate();
     }
 
+
+
+    public override void Hurt(float damage, Vector2 hitForce)
+    {
+        rb2D.AddForce(hitForce, ForceMode2D.Impulse);
+        base.Hurt(damage, hitForce);
+    }
+
     protected override void Die()
     {
         dead = true;
