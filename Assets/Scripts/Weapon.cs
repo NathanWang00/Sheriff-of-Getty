@@ -6,8 +6,7 @@ public class Weapon : MonoBehaviour
 {
     private GameObject currentCharacter; //cowboy character that is shooting from
     public GameObject bullet;
-    private float bulletSpeed;
-    private float bulletDamage;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +16,6 @@ public class Weapon : MonoBehaviour
         //this also switches based on current character
         // maybe just turn visibility on and off or something
         //change bullet stats?
-        bulletSpeed = 10;
-        bulletDamage = 50; //if enemies have 100 health. this also falls off
     }
 
     // Update is called once per frame
@@ -44,7 +41,6 @@ public class Weapon : MonoBehaviour
         {
             Debug.Log("Shooting");
             GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
-            shotBullet.GetComponent<Rigidbody2D>().AddForce(this.transform.right * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 }
