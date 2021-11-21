@@ -13,8 +13,17 @@ public class TestProjectile : MonoBehaviour
 
     void Start()
     {
+        // shoot bullet
         rb2D.velocity = (transform.right * bulletSpeed);
+        // destroy bullet after 5 seconds
         Destroy(gameObject, 5.0f);
+    }
+
+    private void FixedUpdate()
+    {
+        // bullet damage drop off
+        // change when we can actually playtest
+        bulletDamage -= 15 * Time.deltaTime;
     }
 
     // Uses the collision matrix to get the right hitbox

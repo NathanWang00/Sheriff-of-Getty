@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Debug stuff
-        if (debugMode)
+        /*if (debugMode)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
                 position.z = 0;
                 Instantiate(testBullet, position, Quaternion.Euler(0, 0, 0));
             }
-        }
+        }*/
     }
 
     // GameManager handles collisions to keep things clean and since it's a singleton that needs no reference
