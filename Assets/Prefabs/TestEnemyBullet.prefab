@@ -139,5 +139,5 @@ MonoBehaviour:
   damage: 10
   knockback: 100
   bulletSpeed: 40
-  bulletDamage: 0
+  bulletDamage: 50
   rb2D: {fileID: 5536537933014451636}
