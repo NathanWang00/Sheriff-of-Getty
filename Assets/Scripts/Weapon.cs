@@ -27,16 +27,21 @@ public class Weapon : MonoBehaviour
         //ROTATING
         if (Input.GetKey("up"))
         {
-            //rotate up around gun
-            transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, 100 * Time.deltaTime);
-            //clamp rotation
-            //transform.rotation.y = Mathf.Clamp(transform.eulerAngles.y, -45, 45);
+            //rotate up around gun and clamp rotation
+            Debug.Log(transform.rotation.z);
+            if(this.transform.rotation.z <= .45){
+                transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, 100 * Time.deltaTime);
+            }
+            //transform.rotation += new Vector3(0, Mathf.Clamp(transform.eulerAngles.y, -45, 45), 0);
         }
         if (Input.GetKey("down"))
         {
             //rotate weapon down around gun
-            transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, -100 * Time.deltaTime);
-            //transform.rotation.y = Mathf.Clamp(transform.eulerAngles.y, -45, 45);
+            Debug.Log(transform.rotation.z);
+            if(this.transform.rotation.z >= -.45){
+                transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, -100 * Time.deltaTime);
+            }
+            //transform.rotation = Mathf.Clamp(transform.eulerAngles.y, -45, 45);
         }
         // RELOADING
         if (Input.GetKey("r"))
