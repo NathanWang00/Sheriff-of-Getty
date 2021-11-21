@@ -4,6 +4,8 @@ using UnityEngine;
 //Names: Jackson Brazeal
 public class Character : Damageable
 {
+    [SerializeField] public string[] weapons;
+
     // Inherits the damageable code and adds knockback, movement, and turnsystem
     // Seperating into Damageable -> Character -> PlayerCharacter / Enemy because of turn and possible AI reasons
 
@@ -51,7 +53,14 @@ public class Character : Damageable
         base.FixedUpdate();
     }
 
-
+    private void Update(){
+        if(Input.GetKey("1")){
+            SwitchWeapons(weapons[0]);
+        }
+        else if(Input.GetKey("2")){
+            SwitchWeapons(weapons[1]);
+        }
+    }
 
     public override void Hurt(float damage, Vector2 hitForce)
     {
@@ -63,5 +72,43 @@ public class Character : Damageable
     {
         dead = true;
         base.Die();
+    }
+
+    private void SwitchWeapons(string weapon){
+        switch(weapon)
+        {
+            case "revolver":
+                DisableAllWeapons();
+                this.transform.Find("Revolver").gameObject.SetActive(true);
+                break;
+            case "sniper":
+                DisableAllWeapons();
+                this.transform.Find("Sniper").gameObject.SetActive(true);
+                break;
+            case "shotgun":
+                DisableAllWeapons();
+                this.transform.Find("Shotgun").gameObject.SetActive(true);
+                break;
+            case "horse":
+                DisableAllWeapons();
+                this.transform.Find("Horse").gameObject.SetActive(true);
+                break;
+            case "frying pan":
+                DisableAllWeapons();
+                this.transform.Find("Frying Pan").gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void DisableAllWeapons(){
+        foreach(Transform child in this.transform){
+            //disable weapons by name
+            if(child.name == "Revolver" || child.name == "Sniper" || child.name == "Shotgun"
+                || child.name == "Horse" || child.name == "Frying Pan"){
+                    this.gameObject.SetActive(false);
+                }
+        }
     }
 }
