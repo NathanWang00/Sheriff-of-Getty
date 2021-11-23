@@ -30,6 +30,8 @@ public class Character : Damageable
     protected virtual void Start()
     {
         state = States.Still;
+        SwitchWeapons(weapons[0]);
+
     }
 
     protected override void FixedUpdate()
@@ -54,10 +56,10 @@ public class Character : Damageable
     }
 
     private void Update(){
-        if(Input.GetKey("1")){
+        if(Input.GetKeyDown("1")){
             SwitchWeapons(weapons[0]);
         }
-        else if(Input.GetKey("2")){
+        else if(Input.GetKeyDown("2")){
             SwitchWeapons(weapons[1]);
         }
     }
@@ -105,9 +107,8 @@ public class Character : Damageable
     private void DisableAllWeapons(){
         foreach(Transform child in this.transform){
             //disable weapons by name
-            if(child.name == "Revolver" || child.name == "Sniper" || child.name == "Shotgun"
-                || child.name == "Horse" || child.name == "Frying Pan"){
-                    this.gameObject.SetActive(false);
+            if(child.tag == "Weapon"){
+                    child.gameObject.SetActive(false);
                 }
         }
     }

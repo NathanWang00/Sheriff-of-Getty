@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
             //transform.rotation = Mathf.Clamp(transform.eulerAngles.y, -45, 45);
         }
         // RELOADING
-        if (Input.GetKey("r"))
+        if (Input.GetKeyDown("r"))
         {
             currentAmmo = maxAmmo;
         }
