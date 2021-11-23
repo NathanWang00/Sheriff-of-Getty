@@ -87,9 +87,13 @@ public class Character : Damageable
                 DisableAllWeapons();
                 this.transform.Find("Sniper").gameObject.SetActive(true);
                 break;
-            case "shotgun":
+            case "dynamite":
                 DisableAllWeapons();
-                this.transform.Find("Shotgun").gameObject.SetActive(true);
+                this.transform.Find("Dynamite").gameObject.SetActive(true);
+                break;
+            case "beer":
+                DisableAllWeapons();
+                this.transform.Find("Beer").gameObject.SetActive(true);
                 break;
             case "horse":
                 DisableAllWeapons();
