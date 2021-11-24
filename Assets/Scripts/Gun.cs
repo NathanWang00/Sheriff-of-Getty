@@ -23,7 +23,6 @@ public class Gun : MonoBehaviour
         if (Input.GetKey("up"))
         {
             //rotate up around gun and clamp rotation
-            Debug.Log(transform.rotation.z);
             if(this.transform.rotation.z <= .45){
                 transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, 100 * Time.deltaTime);
             }
@@ -32,7 +31,6 @@ public class Gun : MonoBehaviour
         if (Input.GetKey("down"))
         {
             //rotate weapon down around gun
-            Debug.Log(transform.rotation.z);
             if(this.transform.rotation.z >= -.45){
                 transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, -100 * Time.deltaTime);
             }
