@@ -5,6 +5,11 @@ using UnityEngine;
 public class Character : Damageable
 {
     [SerializeField] public string[] weapons;
+    public float moveSpeed = 3f;
+    float velX;
+    float velY;
+    bool facingRight = true;
+    Rigidbody2D rigbody;
 
     // Inherits the damageable code and adds knockback, movement, and turnsystem
     // Seperating into Damageable -> Character -> PlayerCharacter / Enemy because of turn and possible AI reasons
@@ -31,13 +36,26 @@ public class Character : Damageable
     {
         state = States.Still;
         SwitchWeapons(weapons[0]);
-
+        rigbody = GetComponent<Rigidbody2D> ();
     }
 
     protected override void FixedUpdate()
     {
         // For handling things that occur to a character over a period of time like friction or leftover momentumn
         // One time transitions happen in the fuctions like setting a bool or jumping
+
+        Vector3 localScale = transform.localScale;
+        if (velX > 0) {
+            facingRight = true;
+        }
+        else if (velX < 0) {
+            facingRight = false;
+        }
+        if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0))){
+            localScale.x *= -1;
+        }
+
+        transform.localScale = localScale;
         switch (state) 
         {
             case States.Still:
@@ -62,6 +80,11 @@ public class Character : Damageable
         else if(Input.GetKeyDown("2")){
             SwitchWeapons(weapons[1]);
         }
+        //probably want to run check loops for if turn is active so the whole squad doesn't move.
+        velX = Input.GetAxisRaw ("Horizontal");
+        velY = rigbody.velocity.y;
+        rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
+        //make them flip you idget.
     }
 
     public override void Hurt(float damage, Vector2 hitForce)
