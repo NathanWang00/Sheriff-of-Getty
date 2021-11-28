@@ -13,14 +13,19 @@ public class HealthBarBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // have slider follow object it is attached to
         Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
     }
 
     public void SetHealth(float health, float maxHealth)
     {
+        // show health bar
         Slider.gameObject.SetActive(health < maxHealth);
+        // current health value
         Slider.value = health;
+        // max health value;
         Slider.maxValue = maxHealth;
+        // fill in health bar
         Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, Slider.normalizedValue);
     }
 }

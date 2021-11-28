@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  knockback: 100
+  knockback: 10
   bulletSpeed: 40
   bulletDamage: 50
   rb2D: {fileID: 5536537933014451636}
