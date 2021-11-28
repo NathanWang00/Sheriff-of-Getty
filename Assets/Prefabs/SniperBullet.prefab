@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1351414796137235182}
   - component: {fileID: 6763114400927285317}
   m_Layer: 8
-  m_Name: TestEnemyBullet
+  m_Name: SniperBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b147daf3d3dc2c4faac53fe6a578859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  knockback: 10
+  damage: 100
+  knockback: 20
   bulletSpeed: 40
-  bulletDamage: 50
+  bulletDamage: 100
+  damageFallOffSpeed: 5
   rb2D: {fileID: 5536537933014451636}

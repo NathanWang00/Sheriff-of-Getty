@@ -8,6 +8,7 @@ public class TestProjectile : MonoBehaviour
     protected float damage, knockback;
     public float bulletSpeed;
     public float bulletDamage;
+    public float damageFallOffSpeed;
 
     public Rigidbody2D rb2D;
 
@@ -23,7 +24,7 @@ public class TestProjectile : MonoBehaviour
     {
         // bullet damage drop off
         // change when we can actually playtest
-        bulletDamage -= 15 * Time.deltaTime;
+        bulletDamage -= damageFallOffSpeed * Time.deltaTime;
     }
 
     // Uses the collision matrix to get the right hitbox
