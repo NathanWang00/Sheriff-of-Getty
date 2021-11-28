@@ -9,6 +9,8 @@ public class Character : Damageable
     float velX;
     float velY;
     bool facingRight = true;
+    bool currentTurn = false;
+    public string characterType = "";
     Rigidbody2D rigbody;
 
     // Inherits the damageable code and adds knockback, movement, and turnsystem
@@ -74,6 +76,11 @@ public class Character : Damageable
     }
 
     private void Update(){
+        // when the character is not currently selected, ignore the update script
+        if(!currentTurn) {
+            return;
+        }
+
         if(Input.GetKeyDown("1")){
             SwitchWeapons(weapons[0]);
         }
@@ -81,6 +88,8 @@ public class Character : Damageable
             SwitchWeapons(weapons[1]);
         }
         //probably want to run check loops for if turn is active so the whole squad doesn't move.
+        // SOLVED
+        
         velX = Input.GetAxisRaw ("Horizontal");
         velY = rigbody.velocity.y;
         rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
@@ -138,5 +147,9 @@ public class Character : Damageable
                     child.gameObject.SetActive(false);
                 }
         }
+    }
+
+    public void SelectCharacter(bool isSelected) {
+        currentTurn = isSelected;
     }
 }
