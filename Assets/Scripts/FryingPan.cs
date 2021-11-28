@@ -6,7 +6,7 @@ public class FryingPan : MonoBehaviour
 {
     void Start()
     {
-
+        
     }
 
     void Update()
