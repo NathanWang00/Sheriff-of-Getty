@@ -67,10 +67,17 @@ public class Dynamite : MonoBehaviour
             Debug.Log("Shooting");
             currentAmmo -= 0;
             this.transform.parent = null;
-            float power = chargeTime * 10;
+            float power = chargeTime/10;
             rb.simulated = true;
             rb.velocity = (transform.right * power);
             chargeTime = 0;
+            StartCoroutine("Explode");
         }
+    }
+
+    IEnumerator Explode(){
+        yield return new WaitForSeconds(5);
+        //self destruct and create explosion
+        
     }
 }
