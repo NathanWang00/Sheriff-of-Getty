@@ -16,7 +16,7 @@ public class Dynamite : MonoBehaviour
     private float explodeTime; 
     private float explodeRadius;
 
-    private blool isActive;
+    private bool isActive;
 
     // Start is called before the first frame update
     void Start()

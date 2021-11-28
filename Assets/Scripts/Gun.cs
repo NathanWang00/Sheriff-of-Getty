@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public float maxAmmo;
     private float currentAmmo;
-    private blool isActive;
+    private bool isActive;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private SetActive(bool active){
+    private void SetActive(bool active){
         isActive = active;
     }
 }
