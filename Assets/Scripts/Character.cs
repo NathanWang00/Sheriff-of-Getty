@@ -109,7 +109,7 @@ public class Character : Damageable
         velX = Input.GetAxisRaw ("Horizontal");
         velY = rigbody.velocity.y;
         rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
-        
+        //makes sure character isn't moving before you can jump again
         if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rigbody.velocity.y) < 0.001f){
             float jumpVelocity = 14f;
             rigbody.velocity = Vector2.up * jumpVelocity;
