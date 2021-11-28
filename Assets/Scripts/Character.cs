@@ -13,6 +13,11 @@ public class Character : Damageable
     public string characterType = "";
     Rigidbody2D rigbody;
 
+    // Health
+    public float maxHealth;
+    public float currentHealth;
+    public HealthBarBehavior Healthbar;
+
     // Inherits the damageable code and adds knockback, movement, and turnsystem
     // Seperating into Damageable -> Character -> PlayerCharacter / Enemy because of turn and possible AI reasons
 
@@ -39,6 +44,10 @@ public class Character : Damageable
         state = States.Still;
         SwitchWeapons(weapons[0]);
         rigbody = GetComponent<Rigidbody2D> ();
+
+        // Health
+        currentHealth = maxHealth;
+        Healthbar.SetHealth(currentHealth, maxHealth);
     }
 
     protected override void FixedUpdate()
@@ -73,6 +82,11 @@ public class Character : Damageable
                 break;
         }
         base.FixedUpdate();
+
+        // Health
+        Healthbar.SetHealth(currentHealth, maxHealth);
+        // Delete Later (Was for testing purposes)
+        currentHealth -= 1 * Time.deltaTime;
     }
 
     private void Update(){
@@ -94,6 +108,8 @@ public class Character : Damageable
         velY = rigbody.velocity.y;
         rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
         //make them flip you idget.
+
+        
     }
 
     public override void Hurt(float damage, Vector2 hitForce)
