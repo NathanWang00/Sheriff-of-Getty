@@ -59,4 +59,53 @@ public class Gun : MonoBehaviour
     private void SetActive(bool active){
         isActive = active;
     }
+
+    public bool RotateToObject(Transform target)
+    {
+        bool facingRight;
+        if (target.position.x > transform.position.x)
+        {
+            facingRight = true;
+        }
+        else
+        {
+            facingRight = false;
+        }
+        Vector3 localScale = transform.localScale;
+        if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
+        {
+            localScale.x *= -1;
+        }
+        // jank ass code to fix angles
+        localScale.x *= -1;
+        //transform.localScale = localScale;
+
+        // add rotation later (never)
+        var dir = transform.position - target.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //this.transform.Find("Gun").transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        this.transform.Find("Gun").transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        return false;
+    }
+
+    public void RotateUp()
+    {
+        if (this.transform.rotation.z <= .45)
+        {
+            transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, 100 * Time.deltaTime);
+        }
+    }
+
+    public void RotateDown()
+    {
+        if (this.transform.rotation.z >= -.45)
+        {
+            transform.RotateAround(this.transform.Find("Gun").transform.position, Vector3.forward, -100 * Time.deltaTime);
+        }
+    }
+
+    public void Shoot()
+    {
+        GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
+    }
 }

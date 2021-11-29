@@ -7,10 +7,10 @@ public class Character : Damageable
     [SerializeField] public string[] weapons;
     public float moveSpeed = 3f;
     public float JumpForce = 1;
-    float velX;
-    float velY;
-    bool facingRight = true;
-    bool currentTurn = false;
+    protected float velX;
+    protected float velY;
+    protected bool facingRight = true;
+    protected bool currentTurn = false;
     public string characterType = "";
     Rigidbody2D rigbody;
     private BoxCollider2D boxCollider2D;
@@ -39,7 +39,7 @@ public class Character : Damageable
     [SerializeField] // Serialied for debugging, changing it won't do anything
     public States state;
 
-    protected bool dead = false, turnActive = false;
+    protected bool dead = false;
 
     protected virtual void Start()
     {
@@ -91,7 +91,7 @@ public class Character : Damageable
         // currentHealth -= 1 * Time.deltaTime;
     }
 
-    private void Update(){
+    protected virtual void Update(){
         // when the character is not currently selected, ignore the update script
         if(!currentTurn) {
             return;
