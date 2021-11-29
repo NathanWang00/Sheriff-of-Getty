@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     private GameObject testBullet;
     // public GameObject[] worms = new GameObject[5];
     public List<GameObject> worms = new List<GameObject>();
-    private Queue turnOrder = new Queue();
+    public Queue turnOrder = new Queue();
+    public int playersRemain = 0;
+    public int enemiesRemain = 0;
 
     private void Awake()
     {
@@ -32,7 +34,11 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        GameObject[] wormsArray = new GameObject[5];
+        // sets a number of players and enemies
+        playersRemain = 3;
+        enemiesRemain = 2;
+
+        GameObject[] wormsArray = new GameObject[playersRemain + enemiesRemain];
         wormsArray = GameObject.FindGameObjectsWithTag("Character");
 
         for(int i = 0; i < wormsArray.Length; i++) {
@@ -44,12 +50,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
+        GameOverMessage();
         // Switches turn based on user input
-        // TO SWITCH TURNS, PRESS THE SPACE BAR
+        // TO SWITCH TURNS, PRESS "T"
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.T)) {
             // If each character exhausted their turn, reset the round
-            if(turnOrder.Count == 0) SetTurnOrder();
+            if(turnOrder.Count <= 0) SetTurnOrder();
             // Sets the next player's turn
             NextTurn();
         }
@@ -75,8 +82,14 @@ public class GameManager : MonoBehaviour
     // Sets the next character's turn and sets every other character that is
     // not their turn to false as to avoid any possible simultaneous play
     public void NextTurn() {
+        if(turnOrder.Count <= 0) return;
+
         int chosen = (int)turnOrder.Dequeue();
         Debug.Log("Next Turn: " + chosen);
+
+        // if the chosen one next in line is no longer in the queue, let player know that character is DEAD
+        if(chosen >= worms.Count && turnOrder.Count > 0) Debug.Log("CHARACTER IS DEAD");
+
         for(int i = 0; i < worms.Count; i++) {
             if(i == chosen) worms[i].GetComponent<Character>().SelectCharacter(true);
             else worms[i].GetComponent<Character>().SelectCharacter(false);
@@ -114,5 +127,15 @@ public class GameManager : MonoBehaviour
         //     Debug.Log("Type: " + worms[temp].GetComponent<Character>().characterType + " #" + i);
         //     turnOrder.Enqueue(temp);
         // }
+    }
+
+    // sends out a message to see if one team remains victory
+    private void GameOverMessage() {
+        if(playersRemain <= 0) {
+            Debug.Log("ENEMY TEAM WINS");
+        }
+        if(enemiesRemain <= 0) {
+            Debug.Log("PLAYER TEAM WINS");
+        }
     }
 }

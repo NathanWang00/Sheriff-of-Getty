@@ -86,7 +86,7 @@ public class Character : Damageable
         // Health
         Healthbar.SetHealth(currentHealth, maxHealth);
         // Delete Later (Was for testing purposes)
-        currentHealth -= 1 * Time.deltaTime;
+        // currentHealth -= 1 * Time.deltaTime;
     }
 
     private void Update(){
@@ -97,7 +97,6 @@ public class Character : Damageable
 
         if(Input.GetKeyDown(KeyCode.Backspace)) {
             Hurt(25, new Vector2(1, 1));
-            Debug.Log("Took 1 Health. Current health = " + currentHealth);
         }
 
         if(Input.GetKeyDown("1")){

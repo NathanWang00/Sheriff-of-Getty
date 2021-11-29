@@ -43,6 +43,10 @@ public class Damageable : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(this.gameObject.name + " is dead");
+        // Updates the game to show how many players and enemies remain
+        if(gameObject.GetComponent<Character>().characterType == "Player") GameManager.Instance.playersRemain--;
+        else GameManager.Instance.enemiesRemain--;
+
         GameManager.Instance.worms.Remove(gameObject);
         GameManager.Instance.NextTurn();
     }
