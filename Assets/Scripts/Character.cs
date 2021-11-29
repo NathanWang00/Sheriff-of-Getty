@@ -172,10 +172,19 @@ public class Character : Damageable
             if(child.tag == "Weapon"){
                     child.gameObject.SetActive(false);
                 }
+            if(child.name == "Revolver" || child.name == "Sniper"){
+                    child.gameObject.GetComponent<Gun>().WeaponActive(false);
+                }
         }
     }
 
     public void SelectCharacter(bool isSelected) {
         currentTurn = isSelected;
+        foreach(Transform child in this.transform){
+            //set weapons to active
+            if(child.name == "Revolver" || child.name == "Sniper"){
+                    child.gameObject.GetComponent<Gun>().WeaponActive(true);
+                }
+        }
     }
 }

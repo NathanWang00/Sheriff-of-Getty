@@ -50,12 +50,12 @@ public class Enemy : Character
                     localScale.x *= -1;
                 }
                 transform.localScale = localScale;
-                if (!gun.RotateToObject(targetPlayer))
-                {
-                    //gun.Shoot();
-                    // Copy Character timer function when they're done
-                    //GameManager.Instance.NextTurn();
-                }
+                // if (!gun.RotateToObject(targetPlayer))
+                // {
+                //     //gun.Shoot();
+                //     // Copy Character timer function when they're done
+                //     //GameManager.Instance.NextTurn();
+                // }
             }
         }
     }

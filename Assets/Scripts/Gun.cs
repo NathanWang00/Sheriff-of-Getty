@@ -56,7 +56,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void SetActive(bool active){
+    public void WeaponActive(bool active){
         isActive = active;
     }
 
