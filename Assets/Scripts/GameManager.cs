@@ -88,7 +88,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Next Turn: " + chosen);
 
         // if the chosen one next in line is no longer in the queue, let player know that character is DEAD
-        if(chosen >= worms.Count && turnOrder.Count > 0) Debug.Log("CHARACTER IS DEAD");
+        if(chosen >= worms.Count && turnOrder.Count > 0) {
+            Debug.Log("CHARACTER IS DEAD");
+            return;
+        }
 
         for(int i = 0; i < worms.Count; i++) {
             if(i == chosen) worms[i].GetComponent<Character>().SelectCharacter(true);

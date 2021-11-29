@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b389057f2af5764795937a37362a83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 200
   fallSpeed: 1
   maxFallSpeed: 5
   indestructable: 0
@@ -4138,6 +4138,8 @@ MonoBehaviour:
   debugMode: 1
   testBullet: {fileID: 975992032612005424, guid: b494daf89358ed049b78a6e6d7e1e606, type: 3}
   worms: []
+  playersRemain: 0
+  enemiesRemain: 0
 --- !u!4 &1249896798
 Transform:
   m_ObjectHideFlags: 0

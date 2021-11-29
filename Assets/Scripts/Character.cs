@@ -120,13 +120,21 @@ public class Character : Damageable
     {
         rb2D.AddForce(hitForce, ForceMode2D.Impulse);
         base.Hurt(damage, hitForce);
+        if(GetHealth() <= 0) {
+            Die();
+        }
     }
 
     protected override void Die()
     {
         dead = true;
         base.Die();
+        // Updates the game to show how many players and enemies remain
+        if(gameObject.GetComponent<Character>().characterType == "Player") GameManager.Instance.playersRemain--;
+        else GameManager.Instance.enemiesRemain--;
 
+        GameManager.Instance.worms.Remove(gameObject);
+        GameManager.Instance.NextTurn();
         Destroy(gameObject);
     }
 
