@@ -189,9 +189,9 @@ public class Character : Damageable
     public void SelectCharacter(bool isSelected) {
         currentTurn = isSelected;
         foreach(Transform child in this.transform){
-            //set weapons to active
+            //set weapons to or inactive
             if(child.name == "Revolver" || child.name == "Sniper"){
-                    child.gameObject.GetComponent<Gun>().WeaponActive(true);
+                    child.gameObject.GetComponent<Gun>().WeaponActive(isSelected);
                 }
         }
     }
