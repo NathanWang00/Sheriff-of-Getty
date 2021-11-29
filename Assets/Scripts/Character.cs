@@ -6,12 +6,14 @@ public class Character : Damageable
 {
     [SerializeField] public string[] weapons;
     public float moveSpeed = 3f;
-    float velX;
-    float velY;
-    bool facingRight = true;
-    bool currentTurn = false;
+    public float JumpForce = 1;
+    protected float velX;
+    protected float velY;
+    protected bool facingRight = true;
+    protected bool currentTurn = false;
     public string characterType = "";
     Rigidbody2D rigbody;
+    private BoxCollider2D boxCollider2D;
 
     // Health
     public float maxHealth;
@@ -37,7 +39,7 @@ public class Character : Damageable
     [SerializeField] // Serialied for debugging, changing it won't do anything
     public States state;
 
-    protected bool dead = false, turnActive = false;
+    protected bool dead = false;
 
     protected virtual void Start()
     {
@@ -89,7 +91,7 @@ public class Character : Damageable
         // currentHealth -= 1 * Time.deltaTime;
     }
 
-    private void Update(){
+    protected virtual void Update(){
         // when the character is not currently selected, ignore the update script
         if(!currentTurn) {
             return;
@@ -111,9 +113,11 @@ public class Character : Damageable
         velX = Input.GetAxisRaw ("Horizontal");
         velY = rigbody.velocity.y;
         rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
-        //make them flip you idget.
-
-        
+        //makes sure character isn't moving before you can jump again
+        if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rigbody.velocity.y) < 0.001f){
+            float jumpVelocity = 14f;
+            rigbody.velocity = Vector2.up * jumpVelocity;
+        }
     }
 
     public override void Hurt(float damage, Vector2 hitForce)
@@ -176,10 +180,19 @@ public class Character : Damageable
             if(child.tag == "Weapon"){
                     child.gameObject.SetActive(false);
                 }
+            if(child.name == "Revolver" || child.name == "Sniper"){
+                    child.gameObject.GetComponent<Gun>().WeaponActive(false);
+                }
         }
     }
 
     public void SelectCharacter(bool isSelected) {
         currentTurn = isSelected;
+        foreach(Transform child in this.transform){
+            //set weapons to active
+            if(child.name == "Revolver" || child.name == "Sniper"){
+                    child.gameObject.GetComponent<Gun>().WeaponActive(true);
+                }
+        }
     }
 }
