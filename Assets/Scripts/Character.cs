@@ -6,12 +6,14 @@ public class Character : Damageable
 {
     [SerializeField] public string[] weapons;
     public float moveSpeed = 3f;
+    public float JumpForce = 1;
     float velX;
     float velY;
     bool facingRight = true;
     bool currentTurn = false;
     public string characterType = "";
     Rigidbody2D rigbody;
+    private BoxCollider2D boxCollider2D;
 
     // Health
     public float maxHealth;
@@ -111,9 +113,11 @@ public class Character : Damageable
         velX = Input.GetAxisRaw ("Horizontal");
         velY = rigbody.velocity.y;
         rigbody.velocity = new Vector2 (velX * moveSpeed, velY);
-        //make them flip you idget.
-
-        
+        //makes sure character isn't moving before you can jump again
+        if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(rigbody.velocity.y) < 0.001f){
+            float jumpVelocity = 14f;
+            rigbody.velocity = Vector2.up * jumpVelocity;
+        }
     }
 
     public override void Hurt(float damage, Vector2 hitForce)
