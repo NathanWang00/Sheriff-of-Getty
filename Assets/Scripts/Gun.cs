@@ -77,15 +77,16 @@ public class Gun : MonoBehaviour
             localScale.x *= -1;
         }
         // jank ass code to fix angles
-        if (!facingRight)
-            localScale.x *= -1;
+        
         //transform.localScale = localScale;
 
         // add rotation later (never)
         var dir = transform.position - target.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (facingRight)
+            angle += 180;
         //this.transform.Find("Gun").transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        this.transform.Find("Gun").transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         return false;
     }
 
@@ -105,7 +106,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot(bool face)
     {
         GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
     }

@@ -3746,7 +3746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebedcaf931330314cac8cee13c3faaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 975992032612005424, guid: 3d9eea4f8e31ed94c9f5a654a6196d7a, type: 3}
+  bullet: {fileID: 975992032612005424, guid: f9dce7597cd61f64499d905f561096c3, type: 3}
   maxAmmo: 3
   currentAmmo: 0
 --- !u!1 &1362000328
@@ -5079,7 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebedcaf931330314cac8cee13c3faaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 975992032612005424, guid: 2be6ce4d59d5bcd48b9cca86a5e44b22, type: 3}
+  bullet: {fileID: 975992032612005424, guid: 717d69ea74a636f4bab1a8c4d031a41c, type: 3}
   maxAmmo: 6
   currentAmmo: 0
 --- !u!1 &1950478462
