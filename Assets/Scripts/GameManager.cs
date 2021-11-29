@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject testBullet;
-    private GameObject[] worms = new GameObject[5];
+    // public GameObject[] worms = new GameObject[5];
+    public List<GameObject> worms = new List<GameObject>();
     private Queue turnOrder = new Queue();
 
     private void Awake()
@@ -31,7 +32,12 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        worms = GameObject.FindGameObjectsWithTag("Character");
+        GameObject[] wormsArray = new GameObject[5];
+        wormsArray = GameObject.FindGameObjectsWithTag("Character");
+
+        for(int i = 0; i < wormsArray.Length; i++) {
+            worms.Add(wormsArray[i]);
+        }
 
         SetTurnOrder();
         NextTurn();
@@ -68,10 +74,10 @@ public class GameManager : MonoBehaviour
 
     // Sets the next character's turn and sets every other character that is
     // not their turn to false as to avoid any possible simultaneous play
-    private void NextTurn() {
+    public void NextTurn() {
         int chosen = (int)turnOrder.Dequeue();
         Debug.Log("Next Turn: " + chosen);
-        for(int i = 0; i < worms.Length; i++) {
+        for(int i = 0; i < worms.Count; i++) {
             if(i == chosen) worms[i].GetComponent<Character>().SelectCharacter(true);
             else worms[i].GetComponent<Character>().SelectCharacter(false);
         }
@@ -84,8 +90,8 @@ public class GameManager : MonoBehaviour
 
         // switches between player and enemy characters on field. "false" -> player, "true" -> enemy
         string characterTypePosition = "Player";
-        while(turnOrder.Count < worms.Length) {
-            int nextIndex = Random.Range(0, worms.Length);
+        while(turnOrder.Count < worms.Count) {
+            int nextIndex = Random.Range(0, worms.Count);
             // sets player if available and in position
             if(!turnOrder.Contains(nextIndex)) {
                 // when the current one is player type
@@ -108,7 +114,5 @@ public class GameManager : MonoBehaviour
         //     Debug.Log("Type: " + worms[temp].GetComponent<Character>().characterType + " #" + i);
         //     turnOrder.Enqueue(temp);
         // }
-
-        // Note for Myself(Ivan): Nathan will help out with making the AI for the enemy
     }
 }

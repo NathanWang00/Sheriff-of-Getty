@@ -4137,6 +4137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 1
   testBullet: {fileID: 975992032612005424, guid: b494daf89358ed049b78a6e6d7e1e606, type: 3}
+  worms: []
 --- !u!4 &1249896798
 Transform:
   m_ObjectHideFlags: 0

@@ -95,6 +95,11 @@ public class Character : Damageable
             return;
         }
 
+        if(Input.GetKeyDown(KeyCode.Backspace)) {
+            Hurt(25, new Vector2(1, 1));
+            Debug.Log("Took 1 Health. Current health = " + currentHealth);
+        }
+
         if(Input.GetKeyDown("1")){
             SwitchWeapons(weapons[0]);
         }
@@ -122,6 +127,8 @@ public class Character : Damageable
     {
         dead = true;
         base.Die();
+
+        Destroy(gameObject);
     }
 
     private void SwitchWeapons(string weapon){

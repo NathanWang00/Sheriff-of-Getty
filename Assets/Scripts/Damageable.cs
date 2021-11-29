@@ -43,5 +43,7 @@ public class Damageable : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(this.gameObject.name + " is dead");
+        GameManager.Instance.worms.Remove(gameObject);
+        GameManager.Instance.NextTurn();
     }
 }
