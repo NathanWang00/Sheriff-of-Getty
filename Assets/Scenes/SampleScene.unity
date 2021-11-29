@@ -799,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298870711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.92, y: 0.261, z: 2.117119}
+  m_LocalPosition: {x: 2.395999, y: 0.18300003, z: 2.117119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1969,7 +1969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662837460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.24, y: 0.288, z: 1.8481988}
+  m_LocalPosition: {x: 1.076, y: 0.21, z: 1.8481988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2076,7 +2076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691280638}
   - component: {fileID: 691280639}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2516,7 +2516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962407345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.81, y: 0.07670179, z: -2.117119}
+  m_LocalPosition: {x: 0.5059991, y: -0.0012981892, z: -2.117119}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3098,7 +3098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1155089835}
   - component: {fileID: 1155089836}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5056,7 +5056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932175267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.2200003, y: -0.19000003, z: -2.117119}
+  m_LocalPosition: {x: -0.022, y: -0.03, z: -2.117119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

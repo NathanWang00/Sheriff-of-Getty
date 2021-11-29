@@ -77,7 +77,8 @@ public class Gun : MonoBehaviour
             localScale.x *= -1;
         }
         // jank ass code to fix angles
-        localScale.x *= -1;
+        if (!facingRight)
+            localScale.x *= -1;
         //transform.localScale = localScale;
 
         // add rotation later (never)
