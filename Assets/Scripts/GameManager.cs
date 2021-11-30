@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,11 +23,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject testBullet;
-    // public GameObject[] worms = new GameObject[5];
     public List<GameObject> worms = new List<GameObject>();
     public Queue turnOrder = new Queue();
     public int playersRemain = 0;
     public int enemiesRemain = 0;
+    // Text Display
+    [Header("UI")]
+    [SerializeField]    private Text textUI;
 
     private void Awake()
     {
@@ -85,7 +88,9 @@ public class GameManager : MonoBehaviour
         if(turnOrder.Count <= 0) return;
 
         int chosen = (int)turnOrder.Dequeue();
-        Debug.Log("Next Turn: " + chosen);
+        Debug.Log("Next Turn: " + worms[chosen].GetComponent<Character>().name);
+        if(worms[chosen].GetComponent<Character>().characterType == "Player")
+            StartCoroutine("DisplayText", worms[chosen].GetComponent<Character>().name + "'s Turn");
 
         // if the chosen one next in line is no longer in the queue, let player know that character is DEAD
         if(chosen >= worms.Count && turnOrder.Count > 0) {
@@ -140,5 +145,13 @@ public class GameManager : MonoBehaviour
         if(enemiesRemain <= 0) {
             Debug.Log("PLAYER TEAM WINS");
         }
+    }
+
+    // Sets the text on the screen to show the active player
+    IEnumerator DisplayText(string textToDisplay) {
+        textUI.gameObject.SetActive(true);
+        textUI.text = textToDisplay;
+        yield return new WaitForSeconds(1.5f);
+        textUI.gameObject.SetActive(false);
     }
 }
