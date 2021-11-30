@@ -50,6 +50,9 @@ public class Gun : MonoBehaviour
             {
                 Debug.Log("Shooting");
                 GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
+                var projectile = shotBullet.GetComponent<TestProjectile>();
+                var parent = this.GetComponentInParent<Character>();
+                projectile.Shoot(!parent.facingRight);
                 currentAmmo--;
                 //TIMER TO END TURN
             }
@@ -109,5 +112,8 @@ public class Gun : MonoBehaviour
     public void Shoot(bool face)
     {
         GameObject shotBullet = Instantiate(bullet, this.transform.Find("BulletSpawn").position, this.transform.rotation);
+        var projectile = shotBullet.GetComponent<TestProjectile>();
+        var parent = this.GetComponentInParent<Character>();
+        projectile.Shoot(!parent.facingRight);
     }
 }

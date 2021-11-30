@@ -9,7 +9,7 @@ public class Character : Damageable
     public float JumpForce = 1;
     protected float velX;
     protected float velY;
-    protected bool facingRight = true;
+    public bool facingRight = true;
     protected bool currentTurn = false;
     public string characterType = "";
     Rigidbody2D rigbody;

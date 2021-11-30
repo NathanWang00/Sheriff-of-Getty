@@ -12,10 +12,13 @@ public class TestProjectile : MonoBehaviour
 
     public Rigidbody2D rb2D;
 
-    void Start()
+    public void Shoot(bool invert)
     {
+        Vector3 direction = transform.right;
+        if (invert)
+            direction = -direction;
         // shoot bullet
-        rb2D.velocity = (transform.right * bulletSpeed);
+        rb2D.velocity = (direction * bulletSpeed);
         // destroy bullet after 5 seconds
         Destroy(gameObject, 5.0f);
     }
