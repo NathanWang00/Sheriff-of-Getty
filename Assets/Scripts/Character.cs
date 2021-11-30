@@ -9,7 +9,7 @@ public class Character : Damageable
     public float JumpForce = 1;
     protected float velX;
     protected float velY;
-    protected bool facingRight = true;
+    public bool facingRight = true;
     protected bool currentTurn = false;
     public string characterType = "";
     Rigidbody2D rigbody;
@@ -48,6 +48,7 @@ public class Character : Damageable
         rigbody = GetComponent<Rigidbody2D> ();
 
         // Health
+        currentHealth = GetHealth();
         currentHealth = maxHealth;
         Healthbar.SetHealth(currentHealth, maxHealth);
     }
@@ -86,6 +87,7 @@ public class Character : Damageable
         base.FixedUpdate();
 
         // Health
+        currentHealth = GetHealth();
         Healthbar.SetHealth(currentHealth, maxHealth);
         // Delete Later (Was for testing purposes)
         // currentHealth -= 1 * Time.deltaTime;
