@@ -48,6 +48,7 @@ public class Character : Damageable
         rigbody = GetComponent<Rigidbody2D> ();
 
         // Health
+        currentHealth = GetHealth();
         currentHealth = maxHealth;
         Healthbar.SetHealth(currentHealth, maxHealth);
     }
@@ -86,6 +87,7 @@ public class Character : Damageable
         base.FixedUpdate();
 
         // Health
+        currentHealth = GetHealth();
         Healthbar.SetHealth(currentHealth, maxHealth);
         // Delete Later (Was for testing purposes)
         // currentHealth -= 1 * Time.deltaTime;
