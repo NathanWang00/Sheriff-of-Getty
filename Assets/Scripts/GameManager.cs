@@ -34,10 +34,6 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-    }
-
-    public void ToggleStart()
-    {
         // sets a number of players and enemies
         playersRemain = 3;
         enemiesRemain = 2;
