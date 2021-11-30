@@ -102,11 +102,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5517991161438727804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79d5d1ba5ca89b459a1c556348b8cac, type: 3}
+  m_Script: {fileID: 11500000, guid: ebedcaf931330314cac8cee13c3faaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 975992032612005424, guid: b494daf89358ed049b78a6e6d7e1e606, type: 3}
+  bullet: {fileID: 975992032612005424, guid: 3d9eea4f8e31ed94c9f5a654a6196d7a, type: 3}
   maxAmmo: 6
+  currentAmmo: 6
 --- !u!1 &5517991161663665111
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 5517991161888289502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.03, y: -0.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6302957, y: 0.4951613, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5517991160254423852}
@@ -416,11 +417,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddcfbc4971b668c40a3818edd7c3c0e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 0.5042366, y: 1.0844033}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -446,6 +447,13 @@ MonoBehaviour:
   weapons:
   - revolver
   - sniper
+  moveSpeed: 3
+  JumpForce: 1
+  facingRight: 1
+  characterType: 
+  maxHealth: 0
+  currentHealth: 0
+  Healthbar: {fileID: 0}
   state: 0
 --- !u!50 &5517991161888289493
 Rigidbody2D:
@@ -483,12 +491,12 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.984375, y: 0.984375}
+    oldSize: {x: 0.8, y: 2.19}
     newSize: {x: 0.5042366, y: 1.0844033}
     adaptiveTilingThreshold: 0.5
-    drawMode: 2
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -622,11 +630,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5517991162037407985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79d5d1ba5ca89b459a1c556348b8cac, type: 3}
+  m_Script: {fileID: 11500000, guid: ebedcaf931330314cac8cee13c3faaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 975992032612005424, guid: b494daf89358ed049b78a6e6d7e1e606, type: 3}
+  bullet: {fileID: 975992032612005424, guid: 2be6ce4d59d5bcd48b9cca86a5e44b22, type: 3}
   maxAmmo: 6
+  currentAmmo: 6
 --- !u!1 &5517991162143017554
 GameObject:
   m_ObjectHideFlags: 0
