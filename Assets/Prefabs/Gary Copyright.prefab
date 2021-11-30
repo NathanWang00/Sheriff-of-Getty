@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92552841474968286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 0.32, z: 0}
+  m_LocalPosition: {x: 0.81, y: 0.32, z: 0}
   m_LocalScale: {x: -0.4510361, y: 0.45084372, z: 0.3435}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,7 +247,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0059366226}
   m_SpriteTilingProperty:
     border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4962901, y: 1.0845774}
+  m_Size: {x: 1.6208996, y: 4.349621}
   m_EdgeRadius: 0
 --- !u!1 &92552841952367974
 GameObject:
@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac6ca615bcdec84eaefc239e9268849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmmo: 0
 --- !u!1 &92552842419396826
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +666,7 @@ Transform:
   m_GameObject: {fileID: 92552842699603047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.48, y: -0.47, z: 0}
-  m_LocalScale: {x: 0.40047127, y: 0.40866774, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 92552841936711549}
@@ -716,12 +717,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0139dd2a3bf6b014aab7e4ad9ac28eaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddcfbc4971b668c40a3818edd7c3c0e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5042366, y: 1.0844033}
+  m_Size: {x: 0.8, y: 2.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -748,6 +749,7 @@ MonoBehaviour:
   - horse
   moveSpeed: 3
   JumpForce: 1
+  facingRight: 1
   characterType: Player
   maxHealth: 200
   currentHealth: 200
@@ -787,16 +789,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14454317}
+  m_Offset: {x: 0, y: -0.013941526}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.56, y: 6.05}
-    newSize: {x: 0.5042366, y: 1.0844033}
+    oldSize: {x: 1.6, y: 4.38}
+    newSize: {x: 0.8, y: 2.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4962901, y: 5.1095457}
+  m_Size: {x: 1.6113977, y: 4.373427}
   m_EdgeRadius: 0
