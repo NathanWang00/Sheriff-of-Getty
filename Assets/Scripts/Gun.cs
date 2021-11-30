@@ -115,5 +115,6 @@ public class Gun : MonoBehaviour
         var projectile = shotBullet.GetComponent<TestProjectile>();
         var parent = this.GetComponentInParent<Character>();
         projectile.Shoot(!parent.facingRight);
+        GameManager.Instance.NextTurn();
     }
 }

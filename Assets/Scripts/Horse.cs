@@ -18,6 +18,7 @@ public class Horse : MonoBehaviour
         isCharging = false;
         isShooting = false;
         currentCharacter = this.transform.parent.gameObject;
+        currentAmmo = 1;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -77,5 +78,6 @@ public class Horse : MonoBehaviour
         isShooting = false;
         rb.velocity = new Vector2(0f, 0f);
         currentAmmo = 1;
+        GameManager.Instance.NextTurn();
     }
 }

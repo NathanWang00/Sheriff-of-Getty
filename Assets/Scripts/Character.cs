@@ -150,10 +150,12 @@ public class Character : Damageable
             case "revolver":
                 DisableAllWeapons();
                 this.transform.Find("Revolver").gameObject.SetActive(true);
+                this.transform.Find("Revolver").gameObject.GetComponent<Gun>().WeaponActive(true);
                 break;
             case "sniper":
                 DisableAllWeapons();
                 this.transform.Find("Sniper").gameObject.SetActive(true);
+                this.transform.Find("Sniper").gameObject.GetComponent<Gun>().WeaponActive(true);
                 break;
             case "dynamite":
                 DisableAllWeapons();
