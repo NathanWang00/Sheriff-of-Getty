@@ -5,7 +5,8 @@ using UnityEngine;
 //This should handle all horsin all behavior
 public class Horse : MonoBehaviour
 {
-    private GameObject currentCharacter; //character that can ride horse
+    private GameObject currentCharacter; 
+    private Rigidbody2D rb;
     private bool isCharging;
     private bool isShooting;
     public float currentAmmo;
@@ -16,30 +17,13 @@ public class Horse : MonoBehaviour
     {
         isCharging = false;
         isShooting = false;
+        currentCharacter = this.transform.parent.gameObject;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // //MOUNTING
-        //     if(Input.GetKeyDown("enter")){
-        //     float distance = Vector3.Distance(this.transform.position, currentCharacter.transform.position);
-        //         //cowboy has to be right next to horse to mount
-        //         if(distance < 0.5f && !beingRidden){
-        //             Vector3 seatedPosition = new Vector3(currentCharacter.transform.position.x, currentCharacter.transform.position.y + 0.5f, 0);
-        //             currentCharacter.transform.position = seatedPosition;
-        //             currentCharacter.transform.parent = this.transform;
-        //             beingRidden = true;
-        //         }
-        //         //detach cowboy from horse
-        //         else if(beingRidden){
-        //             currentCharacter.transform.parent = null;
-        //             beingRidden = false;
-        //         }
-        // }
-        //RIDING
-        //based on player movement, so implement later
-
         //SHOOTING 
         // pressing enter to shoot
         if (Input.GetKeyDown(KeyCode.Return) && currentAmmo != 0){
@@ -55,8 +39,8 @@ public class Horse : MonoBehaviour
         else if(isCharging && (chargeTime >= 3f || Input.GetKeyUp(KeyCode.Return))){
             Debug.Log("Shooting");
             currentAmmo -= 0;
-            this.transform.parent = null;
-            float power = chargeTime/10;
+            //this.transform.parent = null;
+            float power = chargeTime;
             StartCoroutine("BoomerangHorse", power);
         }
     }
@@ -68,25 +52,30 @@ public class Horse : MonoBehaviour
         //Lose horse
         isShooting = true;
         currentAmmo =0;
-        float timer = power * 10;
-        Debug.Log(timer);
+        float timer = power * 2;
+        Debug.Log("Timer: " + timer);
         float timePassed = 0;
 
         Transform thisHorse = this.GetComponent<Transform>();
 
         //move and spin in certain direction
+        rb.velocity = new Vector2(5f, 5f);
         while(timePassed <= timer/2){
             timePassed += Time.deltaTime;
-            thisHorse.position = thisHorse.position + new Vector3(1f, 1f, 0f);
+            rb.rotation += 5f;
         }
         //move back towards player AND SPIN
         timePassed = 0;
+        rb.velocity = new Vector2(-5f, -5f);
         while(timePassed <= timer/2){
             timePassed += Time.deltaTime;
-            thisHorse.position = thisHorse.position - new Vector3(1f, 1f, 0f);
+            rb.rotation -= 5f;
         }
 
         //Gain horse back and horse disappears?
+        thisHorse.position = currentCharacter.transform.position;
+        isShooting = false;
+        rb.velocity = new Vector2(0f, 0f);
         currentAmmo = 1;
     }
 }
