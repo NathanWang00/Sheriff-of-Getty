@@ -50,6 +50,7 @@ public class Horse : MonoBehaviour
         if(this.isShooting){
             yield break;
         }
+        Debug.Log("Is shooting");
         //Lose horse
         isShooting = true;
         currentAmmo =0;
@@ -58,19 +59,24 @@ public class Horse : MonoBehaviour
         float timePassed = 0;
 
         Transform thisHorse = this.GetComponent<Transform>();
-
         //move and spin in certain direction
-        rb.velocity = new Vector2(5f, 5f);
+        rb.velocity = new Vector2(25f, 25f);
         while(timePassed <= timer/2){
+            Debug.Log("Spinning forwards");
             timePassed += Time.deltaTime;
+            Debug.Log("Time Passed: " + timePassed);
             rb.rotation += 5f;
+            yield return null;
         }
         //move back towards player AND SPIN
         timePassed = 0;
-        rb.velocity = new Vector2(-5f, -5f);
+        rb.velocity = new Vector2(-25f, -25f);
         while(timePassed <= timer/2){
+            Debug.Log("Spinning back");
             timePassed += Time.deltaTime;
+            Debug.Log("Time Passed: " + timePassed);
             rb.rotation -= 5f;
+            yield return null;
         }
 
         //Gain horse back and horse disappears?

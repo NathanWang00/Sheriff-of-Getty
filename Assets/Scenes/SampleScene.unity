@@ -4586,6 +4586,7 @@ GameObject:
   - component: {fileID: 1885451791}
   - component: {fileID: 1885451794}
   - component: {fileID: 1885451795}
+  - component: {fileID: 1885451796}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Weapon
@@ -4672,7 +4673,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac6ca615bcdec84eaefc239e9268849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAmmo: 0
+  currentAmmo: 1
+--- !u!50 &1885451796
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885451790}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1916356091
 GameObject:
   m_ObjectHideFlags: 0
