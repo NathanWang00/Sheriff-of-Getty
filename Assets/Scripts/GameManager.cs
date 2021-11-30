@@ -140,9 +140,11 @@ public class GameManager : MonoBehaviour
     private void GameOverMessage() {
         if(playersRemain <= 0) {
             Debug.Log("ENEMY TEAM WINS");
+            StartCoroutine("DisplayText", "ENEMY WINS");
         }
         if(enemiesRemain <= 0) {
             Debug.Log("PLAYER TEAM WINS");
+            StartCoroutine("DisplayText", "PLAYER WINS");
         }
     }
 }
