@@ -18,6 +18,8 @@ public class Enemy : Character
     protected override void FixedUpdate()
     {
         rb2D.AddForce(new Vector2(0, Mathf.Clamp(-rb2D.velocity.y - maxFallSpeed, -fallSpeed, fallSpeed)), ForceMode2D.Impulse);
+        currentHealth = GetHealth();
+        Healthbar.SetHealth(currentHealth, maxHealth);
     }
 
     protected override void Update()
