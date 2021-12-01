@@ -24,6 +24,7 @@ public class Enemy : Character
 
     protected override void Update()
     {
+        gun.WeaponActive(currentTurn);
         if (currentTurn)
         {
             if (turnStart == false)
@@ -60,6 +61,7 @@ public class Enemy : Character
                 }
             }
         }
+        
     }
 
     protected virtual Transform FindClosestEnemy()

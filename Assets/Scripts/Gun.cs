@@ -7,14 +7,13 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public float maxAmmo;
     public float currentAmmo;
-    private bool isActive;
+    private bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //change bullet stats?
         currentAmmo = maxAmmo;
-        isActive = false;
     }
 
     // Update is called once per frame
