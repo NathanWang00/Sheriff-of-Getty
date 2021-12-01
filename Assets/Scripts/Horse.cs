@@ -56,25 +56,16 @@ public class Horse : MonoBehaviour
         currentAmmo =0;
         float timer = power * 2;
         Debug.Log("Timer: " + timer);
-        float timePassed = 0;
-
         Transform thisHorse = this.GetComponent<Transform>();
         //move and spin in certain direction
         rb.velocity = new Vector2(25f, 25f);
-        while(timePassed <= timer/2){
-            Debug.Log("Spinning forwards");
-            timePassed += Time.deltaTime;
-            Debug.Log("Time Passed: " + timePassed);
+        for (float t = 0.0f; t < timer; t += Time.deltaTime){
             rb.rotation += 5f;
             yield return null;
         }
         //move back towards player AND SPIN
-        timePassed = 0;
         rb.velocity = new Vector2(-25f, -25f);
-        while(timePassed <= timer/2){
-            Debug.Log("Spinning back");
-            timePassed += Time.deltaTime;
-            Debug.Log("Time Passed: " + timePassed);
+        for (float t = 0.0f; t < timer; t += Time.deltaTime){
             rb.rotation -= 5f;
             yield return null;
         }

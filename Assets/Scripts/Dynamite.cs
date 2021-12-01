@@ -23,6 +23,7 @@ public class Dynamite : MonoBehaviour
     {
         currentAmmo = maxAmmo;
         isCharging = false;
+        isActive = false;
         chargeTime = 0;
         rb = GetComponent<Rigidbody2D>();
         rb.simulated = false;
@@ -31,6 +32,9 @@ public class Dynamite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isActive){
+            return;
+        }
         //ROTATING
         if (Input.GetKey("up"))
         {
